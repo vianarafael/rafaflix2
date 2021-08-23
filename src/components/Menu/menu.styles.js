@@ -1,31 +1,36 @@
 import styled from "styled-components";
 
-export const MenuBase = styled.nav`
+export const MenuWrapper = styled.nav`
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  padding-left: 28px;
+  padding-right: 28px;
+
   .Logo {
     max-width: 168px;
   }
-  .log-dashboard {
-    display: flex;
-    /* justify-content: flex-end; */
-  }
 
-  .searcbox-mobile {
+  /* .searchbox-mobile {
     display: none;
-  }
+  } */
 
-  .fa-user-circle {
+  /* .fa-user-circle {
     font-size: 3rem;
     color: #fff;
     margin-left: 1rem;
     cursor: pointer;
-  }
-
+  } */
+  /* 
   .disappear {
     visibility: hidden;
     cursor: none;
-  }
+  } */
 
-  .Menu {
+  /* .Menu {
     width: 100%;
     height: 94px;
     z-index: 100;
@@ -43,11 +48,11 @@ export const MenuBase = styled.nav`
 
     background: var(--black);
     border-bottom: 2px solid var(--primary);
-  }
-  body {
+  } */
+  /* body {
     --bodyPaddingTop: 94px;
     padding-top: var(--bodyPaddingTop);
-  }
+  } */
   @media (max-width: 800px) {
     .Menu {
       height: 40px;
@@ -73,6 +78,7 @@ export const MenuBase = styled.nav`
     text-decoration: none;
     display: inline-block;
     transition: opacity 0.3s;
+    background-color: black;
   }
   .ButtonLink:hover,
   .ButtonLink:focus {

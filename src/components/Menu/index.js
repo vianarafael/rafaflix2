@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Logo from "../../../public/images/logo.png";
-import { MenuBase } from "./menu.styles.js";
+import { MenuWrapper } from "./menu.styles.js";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // import Button from "../Button/button.component";
 
 import styled from "styled-components";
-import Button from "../Button/button.component";
+import { Button } from "../Button/button.component";
 
 const Search = styled.input`
   color: var(--white);
@@ -29,7 +29,7 @@ const Search = styled.input`
 
 export default function Menu() {
   return (
-    <MenuBase className="Menu">
+    <MenuWrapper className="Menu">
       {/* <div> */}
       <Image className="Logo" src={Logo} alt="Rafaflix logo" />
       {/* </div> */}
@@ -40,8 +40,8 @@ export default function Menu() {
         <Search placeholder="Search..." />
       </div>
       <div class="log-dashboard">
-        <Button value="signin">SIGN IN</Button>
+        <Button className="ButtonLink">SIGN IN</Button>
       </div>
-    </MenuBase>
+    </MenuWrapper>
   );
 }
