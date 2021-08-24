@@ -9,7 +9,9 @@ export const MenuWrapper = styled.nav`
   padding-top: 18px;
   padding-left: 28px;
   padding-right: 28px;
-
+  ${(props) => {
+    console.log(props);
+  }}
   .Logo {
     max-width: 168px;
   }

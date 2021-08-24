@@ -2,6 +2,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
+import theme from "../src/theme/index";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -37,12 +38,6 @@ a {
   flex-direction: column;
 }
 `;
-
-const theme = {
-  colors: {
-    primary: "#0070f3",
-  },
-};
 
 export default function App({ Component, pageProps }) {
   return (
