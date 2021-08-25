@@ -5,7 +5,7 @@ import Logo from "../../../public/images/logo.png";
 
 export default function Footer() {
   return (
-    <FooterBase>
+    <FooterBase variant="primary">
       <a href="/">
         <Image className="Logo" src={Logo} alt="Rafaflix logo" />
       </a>

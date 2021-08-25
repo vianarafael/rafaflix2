@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import get from "lodash/get";
 
 export const MenuWrapper = styled.nav`
-  background-color: black;
+  /* background-color: black; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,8 +10,8 @@ export const MenuWrapper = styled.nav`
   padding-top: 18px;
   padding-left: 28px;
   padding-right: 28px;
-  ${(props) => {
-    console.log(props);
+  ${({ variant, theme }) => {
+    return `background-color: ${get(theme, `colors.${variant}.background`)};`;
   }}
   .Logo {
     max-width: 168px;
