@@ -2,6 +2,7 @@ import React from "react";
 import { FooterBase } from "./footer.styles";
 import Image from "next/image";
 import Logo from "../../../../public/images/logo.png";
+import Text from "../../../foundation/Text";
 
 export default function Footer() {
   return (
@@ -9,9 +10,9 @@ export default function Footer() {
       <a href="/">
         <Image className="Logo" src={Logo} alt="Rafaflix logo" />
       </a>
-      <p>
+      <Text tag="p" variant="smallestException">
         Created by <a href="https://www.rafaelviana.io/">Rafael Viana</a>
-      </p>
+      </Text>
     </FooterBase>
   );
 }
