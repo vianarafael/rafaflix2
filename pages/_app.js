@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CS
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 import theme from "../src/theme/index";
+import Head from "next/head";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -32,6 +33,9 @@ a {
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Rafaflix</title>
+      </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
