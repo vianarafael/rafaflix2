@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import get from "lodash/get";
 
 export const Button = styled.button`
-  color: var(--white);
-  border: 1px solid var(--white);
   box-sizing: border-box;
   cursor: pointer;
   padding: 16px 24px;
@@ -14,6 +13,15 @@ export const Button = styled.button`
   text-decoration: none;
   display: inline-block;
   transition: opacity 0.3s;
+
+  ${({ variant, theme }) => {
+    return `color: ${get(theme, `colors.${variant}.contrastText`)};`;
+  }}
+
+  ${({ variant, theme }) => {
+    return `border: 1px solid ${get(theme, `colors.${variant}.border`)};`;
+  }}
+
   &:hover {
     opacity: 0.5;
   }
