@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PageDefault from "../src/components/pageDefault";
+import PageDefault from "../src/components/commons/pageDefault";
 
 const Title = styled.h1`
   font-size: 50px;

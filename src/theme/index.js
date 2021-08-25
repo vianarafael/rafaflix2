@@ -3,6 +3,7 @@ const colors = {
     main: "#fd1600",
     contrastText: "#fff",
     background: "#000",
+    border: "#fff",
   },
 };
 
