@@ -29,7 +29,7 @@ const Search = styled.input`
 
 export default function Menu() {
   return (
-    <MenuWrapper className="Menu">
+    <MenuWrapper className="Menu" variant="primary">
       {/* <div> */}
       <Image className="Logo" src={Logo} alt="Rafaflix logo" />
       {/* </div> */}
