@@ -10,12 +10,10 @@ export const FooterBase = styled.footer`
   text-align: center;
 
   ${({ variant, theme }) => {
-    console.log(get(theme, `colors.${variant}.background`));
     return `background-color: ${get(theme, `colors.${variant}.background`)};`;
   }}
 
   ${({ variant, theme }) => {
-    console.log(get(theme, `colors.${variant}.background`));
     return `color: ${get(theme, `colors.${variant}.contrastText`)};`;
   }}
 
