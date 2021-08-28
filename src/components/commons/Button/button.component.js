@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import get from "lodash/get";
 
 export const Button = styled.button`
@@ -25,13 +25,16 @@ export const Button = styled.button`
     return `background-color:  ${get(theme, `colors.${variant}.background`)};`;
   }}
 
- ${(props) => {
-    console.log("Btn", props);
-    /* return `
-    @media screen and (min-width: 300px) {
-      background: red !important
-    }
-  `; */
+ ${({ theme }) => {
+    return css`
+      @media screen and (min-width: ${theme.breakpoints.xs}px) {
+        background: red !important;
+      }
+
+      @media screen and (min-width: ${theme.breakpoints.sm}px) {
+        background: blue !important;
+      }
+    `;
   }} 
 
   &:hover {
