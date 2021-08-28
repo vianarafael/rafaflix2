@@ -7,6 +7,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../Button/button.component";
 import { MenuWrapper } from "./menu.styles.js";
 import { SearchBox } from "../Searchbox/searchbox.styles";
+import Text from "../../../foundation/Text";
 
 export default function Menu() {
   return (
@@ -20,9 +21,9 @@ export default function Menu() {
         </Button>
         <SearchBox placeholder="Search..." variant="primary" />
       </div>
-      <div class="log-dashboard">
-        <Button className="ButtonLink" variant="primary">
-          SIGN IN
+      <div className="log-dashboard">
+        <Button variant="primary">
+          <Text>SIGN IN</Text>
         </Button>
       </div>
     </MenuWrapper>

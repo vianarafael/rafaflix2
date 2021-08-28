@@ -21,6 +21,18 @@ export const Button = styled.button`
   ${({ variant, theme }) => {
     return `border: 1px solid ${get(theme, `colors.${variant}.border`)};`;
   }}
+    ${({ variant, theme }) => {
+    return `background-color:  ${get(theme, `colors.${variant}.background`)};`;
+  }}
+
+ ${(props) => {
+    console.log("Btn", props);
+    /* return `
+    @media screen and (min-width: 300px) {
+      background: red !important
+    }
+  `; */
+  }} 
 
   &:hover {
     opacity: 0.5;
