@@ -4,8 +4,6 @@ export function propToStyle(propName) {
   return function (props) {
     const propValue = props[propName];
 
-    console.log(propValue);
-
     if (typeof propValue === "string") {
       return {
         [propName]: props[propName],

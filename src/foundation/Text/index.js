@@ -5,7 +5,7 @@ import { propToStyle } from "../../theme/utils/propToStyle";
 const TextBase = styled.span`
   margin: 0;
   ${propToStyle("textAlign")}
-  /* This is just a test */
+  /* This is just a test  x2 */
   ${propToStyle("color")}
 
   ${(props) => {
