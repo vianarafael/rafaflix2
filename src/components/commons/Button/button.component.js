@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import get from "lodash/get";
+import { breakpointsMedia } from "../../../theme/utils/breakpointsMedia";
+// console.log("breakpointsMedia", breakpointsMedia());
 
 export const Button = styled.button`
   box-sizing: border-box;
@@ -15,12 +17,17 @@ export const Button = styled.button`
   transition: opacity 0.3s;
 
   ${({ variant, theme }) => {
-    return `color: ${get(theme, `colors.${variant}.contrastText`)};`;
+    return css`
+      background-color: ${get(theme, `colors.${variant}.background`)};
+      border: 1px solid ${get(theme, `colors.${variant}.border`)};
+      color: ${get(theme, `colors.${variant}.contrastText`)};
+    `;
   }}
 
-  ${({ variant, theme }) => {
-    return `border: 1px solid ${get(theme, `colors.${variant}.border`)};`;
-  }}
+  /* ${({ theme }) => {
+    console.log("breakpointsMedia", breakpointsMedia(theme.breakpoints));
+  }} */
+  
 
   &:hover {
     opacity: 0.5;

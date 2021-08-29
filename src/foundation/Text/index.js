@@ -1,7 +1,13 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { propToStyle } from "../../theme/utils/propToStyle";
 
 const TextBase = styled.span`
+  margin: 0;
+  ${propToStyle("textAlign")}
+  /* This is just a test  x2 */
+  ${propToStyle("color")}
+
   ${(props) => {
     if (props.variant === "smallestException") {
       return css`
@@ -16,9 +22,9 @@ const TextBase = styled.span`
   }}
 `;
 
-export default function Text({ tag, variant, children }) {
+export default function Text({ tag, variant, children, ...props }) {
   return (
-    <TextBase as={tag} variant={variant}>
+    <TextBase as={tag} variant={variant} {...props}>
       {children}
     </TextBase>
   );

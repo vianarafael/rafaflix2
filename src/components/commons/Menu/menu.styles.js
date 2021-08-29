@@ -2,7 +2,6 @@ import styled from "styled-components";
 import get from "lodash/get";
 
 export const MenuWrapper = styled.nav`
-  /* background-color: black; */
   display: flex;
   align-items: center;
   justify-content: space-between;
