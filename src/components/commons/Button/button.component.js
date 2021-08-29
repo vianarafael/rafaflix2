@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import get from "lodash/get";
 import { breakpointsMedia } from "../../../theme/utils/breakpointsMedia";
-// console.log("breakpointsMedia", breakpointsMedia());
 
 export const Button = styled.button`
   box-sizing: border-box;
@@ -23,11 +22,6 @@ export const Button = styled.button`
       color: ${get(theme, `colors.${variant}.contrastText`)};
     `;
   }}
-
-  /* ${({ theme }) => {
-    console.log("breakpointsMedia", breakpointsMedia(theme.breakpoints));
-  }} */
-  
 
   &:hover {
     opacity: 0.5;
