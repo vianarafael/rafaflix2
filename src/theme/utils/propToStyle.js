@@ -11,7 +11,6 @@ export function propToStyle(propName) {
     }
 
     if (typeof propValue === "object") {
-      console.log("it is an object");
       return breakpointsMedia({
         xs: {
           [propName]: propValue.xs,

@@ -9,6 +9,7 @@ export const MenuWrapper = styled.nav`
   padding-top: 18px;
   padding-left: 28px;
   padding-right: 28px;
+  border-bottom: 2px solid #2a7ae4;
   ${({ variant, theme }) => {
     return `background-color: ${get(theme, `colors.${variant}.background`)};`;
   }}
@@ -110,12 +111,19 @@ export const MenuWrapper = styled.nav`
   }
 
   @media (max-width: 480px) {
+    border-bottom: none;
+
     .Menu {
       height: 8rem;
       display: flex;
       flex-direction: column;
       border: none;
     }
+
+    .logo-container {
+      margin: 0 auto;
+    }
+
     .Logo {
       margin-top: 2.5rem;
     }
@@ -140,6 +148,19 @@ export const MenuWrapper = styled.nav`
 
     .fa-user-circle {
       display: none;
+    }
+
+    .log-dashboard {
+      margin-left: -28px;
+      position: fixed;
+      bottom: 0;
+      z-index: 100;
+    }
+
+    .log-dashboard * {
+      border: none;
+      background-color: #2a7ae4;
+      width: 100vw;
     }
   }
 `;

@@ -12,9 +12,9 @@ import Text from "../../../foundation/Text";
 export default function Menu() {
   return (
     <MenuWrapper className="Menu" variant="primary">
-      {/* <div> */}
-      <Image className="Logo" src={Logo} alt="Rafaflix logo" />
-      {/* </div> */}
+      <div className="logo-container">
+        <Image className="Logo" src={Logo} alt="Rafaflix logo" />
+      </div>
       <div className="searchbox">
         <Button variant="primary">
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>

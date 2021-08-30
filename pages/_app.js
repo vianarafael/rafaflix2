@@ -6,7 +6,7 @@ import theme from "../src/theme/index";
 import Head from "next/head";
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,17 +17,13 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
 a {
   color: inherit;
 }
 
-#root {
-  min-height: calc(100vh);
-  display: flex;
-  flex-direction: column;
-}
 `;
 
 export default function App({ Component, pageProps }) {
@@ -35,6 +31,17 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Rafaflix</title>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charset="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
