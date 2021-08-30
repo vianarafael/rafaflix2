@@ -151,12 +151,14 @@ export const MenuWrapper = styled.nav`
     }
 
     .log-dashboard {
-      margin-top: 0.5rem;
       margin-left: -28px;
+      position: fixed;
+      bottom: 0;
+      z-index: 100;
     }
 
     .log-dashboard * {
-      position: sticky;
+      border: none;
       background-color: #2a7ae4;
       width: 100vw;
     }
