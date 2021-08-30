@@ -24,12 +24,6 @@ a {
   color: inherit;
 }
 
-/* #__next {
-  background-color: tomato;
-  min-height: calc(100vh);
-  display: flex;
-  flex-direction: column;
-} */
 `;
 
 export default function App({ Component, pageProps }) {
