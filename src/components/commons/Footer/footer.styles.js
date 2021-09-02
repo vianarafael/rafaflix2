@@ -8,6 +8,8 @@ export const FooterBase = styled.footer`
   padding-top: 32px;
   padding-bottom: 32px;
   text-align: center;
+  /* margin-top: 42px;
+  border-top: 2px solid #2a7ae4; */
 
   ${({ variant, theme }) => {
     return `background-color: ${get(theme, `colors.${variant}.background`)};`;
@@ -19,5 +21,7 @@ export const FooterBase = styled.footer`
 
   @media (max-width: 800px) {
     margin-bottom: 50px;
+    margin-top: 0;
+    border: none;
   }
 `;
