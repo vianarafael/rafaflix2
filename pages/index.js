@@ -1,9 +1,6 @@
 import PageDefault from "../src/components/commons/pageDefault";
 import Carousel from "../src/components/commons/Carousel";
-// background-color: tomato;
-// min-height: calc(100vh);
-// display: flex;
-// flex-direction: column;
+
 export default function Home({ movieData }) {
   return (
     <PageDefault>
@@ -39,27 +36,27 @@ export default function Home({ movieData }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   const upcoming = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.filmAppKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.filmAppKey}&language=${context.locale}&page=1`
   )
     .then((res) => res.json())
     .then((data) => data.results);
 
   const topRated = await fetch(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.filmAppKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.filmAppKey}&language=${context.locale}&page=1`
   )
     .then((res) => res.json())
     .then((data) => data.results);
 
   const popular = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.filmAppKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.filmAppKey}&language=${context.locale}&page=1`
   )
     .then((res) => res.json())
     .then((data) => data.results);
 
   const nowPlaying = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.filmAppKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.filmAppKey}&language=${context.locale}&page=1`
   )
     .then((res) => res.json())
     .then((data) => data.results);

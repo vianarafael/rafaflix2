@@ -8,8 +8,8 @@ export const FooterBase = styled.footer`
   padding-top: 32px;
   padding-bottom: 32px;
   text-align: center;
-  /* margin-top: 42px;
-  border-top: 2px solid #2a7ae4; */
+  margin-top: 42px;
+  border-top: 2px solid #2a7ae4;
 
   ${({ variant, theme }) => {
     return `background-color: ${get(theme, `colors.${variant}.background`)};`;
