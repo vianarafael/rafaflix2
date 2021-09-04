@@ -44,9 +44,19 @@ export default function Menu() {
             <ul>
               {router.locales.map((locale) => {
                 return (
-                  <li style={{ margin: "8px" }}>
+                  <li style={{ listStyle: "none" }}>
                     <Link href="/" locale={locale}>
-                      <div style={{ height: "50px", width: "80px" }}>
+                      <div
+                        style={{
+                          // height: "50px",
+                          width: "80px",
+                          margin: "0 auto",
+                        }}
+                        onClick={() => {
+                          console.log("click");
+                          setShowModal(false);
+                        }}
+                      >
                         {locale === "en-US" ? (
                           <Flags.US title="English" />
                         ) : locale === "ja" ? (
