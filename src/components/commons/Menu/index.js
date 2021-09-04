@@ -3,11 +3,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import Logo from "../../../../public/images/logo.png";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faLanguage,
-  faFlagUsa,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faLanguage } from "@fortawesome/free-solid-svg-icons";
 import Flags from "country-flag-icons/react/3x2";
 
 import { useRouter } from "next/dist/client/router";
@@ -20,9 +16,12 @@ import Text from "../../../foundation/Text";
 
 import LanguageModal from "../Modal/LanguageModal";
 
+import useTranslation from "../../../../intl/useTranslation";
+
 export default function Menu() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <MenuWrapper className="Menu" variant="primary">
@@ -33,7 +32,7 @@ export default function Menu() {
         <Button variant="primary">
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </Button>
-        <SearchBox placeholder="Search..." variant="primary" />
+        <SearchBox placeholder={t("search")} variant="primary" />
       </div>
       <div className="lang">
         <Button onClick={() => setShowModal(true)}>
@@ -59,7 +58,7 @@ export default function Menu() {
                       >
                         {locale === "en-US" ? (
                           <Flags.US title="English" />
-                        ) : locale === "ja" ? (
+                        ) : locale === "ja-JP" ? (
                           <Flags.JP title="日本語" />
                         ) : locale === "pt-BR" ? (
                           <Flags.BR title="Português" />
@@ -77,7 +76,7 @@ export default function Menu() {
       </div>
       <div className="log-dashboard">
         <Button variant="primary">
-          <Text>SIGN IN</Text>
+          <Text>{t("signin")}</Text>
         </Button>
       </div>
     </MenuWrapper>

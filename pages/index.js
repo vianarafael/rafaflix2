@@ -1,33 +1,37 @@
 import PageDefault from "../src/components/commons/pageDefault";
 import Carousel from "../src/components/commons/Carousel";
 
+import useTranslation from "../intl/useTranslation";
+
 export default function Home({ movieData }) {
+  const { t } = useTranslation();
+
   return (
     <PageDefault>
       {/* <div style={{ background: "red" }}> */}
       <Carousel
         color={"#00c86f"}
-        title="Popular"
+        title={t("popular")}
         films={movieData.popular}
         // genre_ids={popular.genre_ids}
       />
       <Carousel
         color={"#9cd33b"}
-        title="Top Rated"
+        title={t("topRated")}
         films={movieData.topRated}
         // genre_ids={topRated.genre_ids}
       />
 
       <Carousel
         color={"orange"}
-        title="Now Playing"
+        title={t("nowPlaying")}
         films={movieData.nowPlaying}
         // genre_ids={nowPlaying.genre_ids}
       />
 
       <Carousel
         color={"red"}
-        title="Upcoming"
+        title={t("upcoming")}
         films={movieData.upcoming}
         // genre_ids={upcoming.genre_ids}
       />

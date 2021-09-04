@@ -5,6 +5,8 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 import theme from "../src/theme/index";
 import Head from "next/head";
 
+import { LanguageProvider } from "../intl/LanguageProvider";
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -45,7 +47,9 @@ export default function App({ Component, pageProps }) {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        {/* <LanguageProvider> */}
         <Component {...pageProps} />
+        {/* </LanguageProvider> */}
       </ThemeProvider>
     </>
   );
