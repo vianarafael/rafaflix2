@@ -3,7 +3,12 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import Logo from "../../../../public/images/logo.png";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faLanguage } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faLanguage,
+  faFlagUsa,
+} from "@fortawesome/free-solid-svg-icons";
+import Flags from "country-flag-icons/react/3x2";
 
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
@@ -13,8 +18,11 @@ import { MenuWrapper } from "./menu.styles.js";
 import { SearchBox } from "../Searchbox/searchbox.styles";
 import Text from "../../../foundation/Text";
 
+import LanguageModal from "../Modal/LanguageModal";
+
 export default function Menu() {
   const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <MenuWrapper className="Menu" variant="primary">
@@ -27,23 +35,35 @@ export default function Menu() {
         </Button>
         <SearchBox placeholder="Search..." variant="primary" />
       </div>
-      <div
-        className="lang"
-        style={{ color: "white", fontSize: "36px" }}
-        size="6x"
-      >
-        <FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>
-        {/* <ul>
-          {router.locales.map((locale) => {
-            return (
-              <li style={{ color: "white" }}>
-                <Link href="/" locale={locale}>
-                  {locale}
-                </Link>
-              </li>
-            );
-          })}
-        </ul> */}
+      <div className="lang">
+        <Button onClick={() => setShowModal(true)}>
+          <FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>
+        </Button>
+        <LanguageModal onClose={() => setShowModal(false)} show={showModal}>
+          <div>
+            <ul>
+              {router.locales.map((locale) => {
+                return (
+                  <li style={{ margin: "8px" }}>
+                    <Link href="/" locale={locale}>
+                      <div style={{ height: "50px", width: "80px" }}>
+                        {locale === "en-US" ? (
+                          <Flags.US title="English" />
+                        ) : locale === "ja" ? (
+                          <Flags.JP title="日本語" />
+                        ) : locale === "pt-BR" ? (
+                          <Flags.BR title="Português" />
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </LanguageModal>
       </div>
       <div className="log-dashboard">
         <Button variant="primary">
