@@ -10,7 +10,6 @@ export default function useTranslation() {
   const locale = router.locale;
 
   function t(key) {
-    console.log("daaa", LangStrings[locale], key);
     if (!LangStrings[locale][key]) {
       console.warn(`No string '${key}' for locale '${locale}'`);
     }
