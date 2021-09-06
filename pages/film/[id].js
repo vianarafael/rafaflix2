@@ -5,8 +5,6 @@ import { Button } from "../../src/components/commons/Button/button.component";
 import { SliderItem } from "../../src/components/commons/Carousel/components/Slider";
 
 export default function Film(details) {
-  console.log(details.title);
-
   return (
     <div>
       <BannerMain
@@ -44,7 +42,6 @@ export default function Film(details) {
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params);
   const details = await fetch(
     `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.filmAppKey}&append_to_response=videos,credits`
   ).then((res) => res.json());

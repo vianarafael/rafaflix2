@@ -51,7 +51,6 @@ export default function Menu() {
                           margin: "0 auto",
                         }}
                         onClick={() => {
-                          console.log("click");
                           setShowModal(false);
                         }}
                       >
