@@ -5,7 +5,7 @@ import useTranslation from "../intl/useTranslation";
 
 export default function Home({ movieData }) {
   const { t } = useTranslation();
-
+  console.log("----here---", movieData);
   return (
     <PageDefault>
       {/* <div style={{ background: "red" }}> */}
