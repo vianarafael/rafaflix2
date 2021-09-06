@@ -11,27 +11,27 @@ export default function Home({ movieData }) {
       {/* <div style={{ background: "red" }}> */}
       <Carousel
         color={"#00c86f"}
-        // title={t("popular")}
+        title={t("popular")}
         films={movieData.popular}
         // genre_ids={popular.genre_ids}
       />
       <Carousel
         color={"#9cd33b"}
-        // title={t("topRated")}
+        title={t("topRated")}
         films={movieData.topRated}
         // genre_ids={topRated.genre_ids}
       />
 
       <Carousel
         color={"orange"}
-        // title={t("nowPlaying")}
+        title={t("nowPlaying")}
         films={movieData.nowPlaying}
         // genre_ids={nowPlaying.genre_ids}
       />
 
       <Carousel
         color={"red"}
-        // title={t("upcoming")}
+        title={t("upcoming")}
         films={movieData.upcoming}
         // genre_ids={upcoming.genre_ids}
       />

@@ -1,8 +1,5 @@
-import { useContext } from "react";
-
 import { useRouter } from "next/dist/client/router";
 
-import { LanguageContext, defaultLocale } from "./LanguageProvider";
 import { LangStrings } from "./Strings";
 
 export default function useTranslation() {
