@@ -5,7 +5,6 @@ import useTranslation from "../intl/useTranslation";
 
 export default function Home({ movieData }) {
   const { t } = useTranslation();
-  console.log("----here---", t);
 
   return (
     <PageDefault>
