@@ -45,14 +45,13 @@ export default function Menu() {
                 return (
                   <li style={{ listStyle: "none" }}>
                     <Link href="/" locale={locale}>
-                      <div
+                      <Button
                         style={{
                           // height: "50px",
                           width: "80px",
                           margin: "0 auto",
                         }}
                         onClick={() => {
-                          console.log("click");
                           setShowModal(false);
                         }}
                       >
@@ -65,7 +64,7 @@ export default function Menu() {
                         ) : (
                           ""
                         )}
-                      </div>
+                      </Button>
                     </Link>
                   </li>
                 );
