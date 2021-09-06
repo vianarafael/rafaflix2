@@ -8,9 +8,8 @@ import { LangStrings } from "./Strings";
 export default function useTranslation() {
   const router = useRouter();
   const locale = router.locale;
-
+  console.log("---locale----", router);
   function t(key) {
-    console.log("daaa", LangStrings[locale], key);
     if (!LangStrings[locale][key]) {
       console.warn(`No string '${key}' for locale '${locale}'`);
     }
