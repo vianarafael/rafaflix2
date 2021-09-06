@@ -5,7 +5,8 @@ import useTranslation from "../intl/useTranslation";
 
 export default function Home({ movieData }) {
   const { t } = useTranslation();
-  console.log("----here---", movieData);
+  console.log("----here---", t);
+
   return (
     <PageDefault>
       {/* <div style={{ background: "red" }}> */}
@@ -17,21 +18,21 @@ export default function Home({ movieData }) {
       />
       <Carousel
         color={"#9cd33b"}
-        title={t("topRated")}
+        // title={t("topRated")}
         films={movieData.topRated}
         // genre_ids={topRated.genre_ids}
       />
 
       <Carousel
         color={"orange"}
-        title={t("nowPlaying")}
+        // title={t("nowPlaying")}
         films={movieData.nowPlaying}
         // genre_ids={nowPlaying.genre_ids}
       />
 
       <Carousel
         color={"red"}
-        title={t("upcoming")}
+        // title={t("upcoming")}
         films={movieData.upcoming}
         // genre_ids={upcoming.genre_ids}
       />
