@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import BannerMain from "../../src/components/commons/BannerMain";
-import { Button } from "../../src/components/commons/Button/button.component";
 import { SliderItem } from "../../src/components/commons/Carousel/components/Slider";
+import PageDefault from "../../src/components/commons/pageDefault";
 
 export default function Film(details) {
   return (
-    <div>
+    <PageDefault>
       <BannerMain
         videoTitle={details.title}
         url={details.videos.results[0]["key"]}
@@ -37,7 +37,7 @@ export default function Film(details) {
           );
         })}
       </Slider>
-    </div>
+    </PageDefault>
   );
 }
 
@@ -51,8 +51,65 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
-  const paths = [{ params: { id: "588228" } }];
+export async function getStaticPaths(context) {
+  let upcoming = await fetch(
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.filmAppKey}&language=${context.locale}&page=1`
+  )
+    .then((res) => res.json())
+    .then((data) =>
+      data.results.map((film) => {
+        return {
+          params: {
+            id: String(film.id),
+          },
+        };
+      })
+    );
+
+  const topRated = await fetch(
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.filmAppKey}&language=${context.locale}&page=1`
+  )
+    .then((res) => res.json())
+    .then((data) =>
+      data.results.map((film) => {
+        return {
+          params: {
+            id: String(film.id),
+          },
+        };
+      })
+    );
+
+  const popular = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.filmAppKey}&language=${context.locale}&page=1`
+  )
+    .then((res) => res.json())
+    .then((data) =>
+      data.results.map((film) => {
+        return {
+          params: {
+            id: String(film.id),
+          },
+        };
+      })
+    );
+
+  const nowPlaying = await fetch(
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.filmAppKey}&language=${context.locale}&page=1`
+  )
+    .then((res) => res.json())
+    .then((data) =>
+      data.results.map((film) => {
+        return {
+          params: {
+            id: String(film.id),
+          },
+        };
+      })
+    );
+
+  const paths = [...upcoming, ...topRated, ...popular, ...nowPlaying];
+  console.log(paths);
   return {
     paths,
     fallback: false,

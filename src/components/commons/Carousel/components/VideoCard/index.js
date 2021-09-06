@@ -1,10 +1,7 @@
 import React from "react";
 import { VideoCardContainer } from "./styles";
 
-// import { connect } from "react-redux";
-// import { setSelectedMovie } from "../../../../redux/selectedMovie/selectedMovie-action";
-
-// import { withRouter } from "react-router";
+import { useRouter } from "next/router";
 
 function VideoCard({
   videoTitle,
@@ -15,6 +12,7 @@ function VideoCard({
   history,
   genres,
 }) {
+  const router = useRouter();
   let genresString = "";
 
   if (genres) {
@@ -30,13 +28,18 @@ function VideoCard({
   const image = `https://image.tmdb.org/t/p/w200/${poster}`;
   return (
     <>
-      <p style={{ textAlign: "center" }}>{genresString}</p>
+      {/* <p style={{ textAlign: "center" }}>{genresString}</p> */}
       <VideoCardContainer
         url={image}
         target="_blank"
         style={{ borderColor: categoryColor || "red" }}
         title={videoTitle}
+        // onClick={() => {
+        //   router.push(`/film/${id}`);
+        // }}
         // genres={genres}
+        href={`/film/${id}`}
+        target="_self"
       />
     </>
   );

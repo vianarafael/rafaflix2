@@ -25,9 +25,11 @@ export default function Menu() {
 
   return (
     <MenuWrapper className="Menu" variant="primary">
-      <div className="logo-container">
-        <Image className="Logo" src={Logo} alt="Rafaflix logo" />
-      </div>
+      <Link href="/">
+        <div className="logo-container">
+          <Image className="Logo" src={Logo} alt="Rafaflix logo" />
+        </div>
+      </Link>
       <div className="searchbox">
         <Button variant="primary">
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>

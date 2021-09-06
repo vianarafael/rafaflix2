@@ -17,6 +17,10 @@ export const MenuWrapper = styled.nav`
     max-width: 168px;
   }
 
+  .logo-container {
+    cursor: pointer;
+  }
+
   /* .searchbox-mobile {
     display: none;
   } */
