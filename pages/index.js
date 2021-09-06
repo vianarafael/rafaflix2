@@ -9,12 +9,12 @@ export default function Home({ movieData }) {
   return (
     <PageDefault>
       {/* <div style={{ background: "red" }}> */}
-      {/* <Carousel
+      <Carousel
         color={"#00c86f"}
-        title={t("popular")}
+        // title={t("popular")}
         films={movieData.popular}
         // genre_ids={popular.genre_ids}
-      /> */}
+      />
       <Carousel
         color={"#9cd33b"}
         title={t("topRated")}
