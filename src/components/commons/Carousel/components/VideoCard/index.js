@@ -34,9 +34,6 @@ function VideoCard({
         target="_blank"
         style={{ borderColor: categoryColor || "red" }}
         title={videoTitle}
-        // onClick={() => {
-        //   router.push(`/film/${id}`);
-        // }}
         // genres={genres}
         href={`/film/${id}`}
         target="_self"
