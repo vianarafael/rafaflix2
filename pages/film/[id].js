@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
+import BannerMain from "../../src/components/commons/BannerMain";
 import { Button } from "../../src/components/commons/Button/button.component";
 import { SliderItem } from "../../src/components/commons/Carousel/components/Slider";
 
 export default function Film(details) {
-  //   console.log(details);
+  console.log(details.title);
 
   return (
     <div>
-      {/* <BannerMain
-                videoTitle={details.title}
-                url={details.videos.results[0]["key"]}
-                videoDescription={details.overview}
-              /> */}
+      <BannerMain
+        videoTitle={details.title}
+        url={details.videos.results[0]["key"]}
+        videoDescription={details.overview}
+      />
       <div
         style={{
           textAlign: "center",
