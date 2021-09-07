@@ -3,7 +3,14 @@ import Slider from "react-slick";
 import BannerMain from "../../src/components/commons/BannerMain";
 import CastCard from "../../src/components/commons/Carousel/components/CastCard";
 import { SliderItem } from "../../src/components/commons/Carousel/components/Slider";
+import { VideoCardGroupContainer } from "../../src/components/commons/Carousel/styles";
 import PageDefault from "../../src/components/commons/pageDefault";
+
+const settings = {
+  infinite: true,
+
+  slidesToShow: 4,
+};
 
 export default function Film(details) {
   return (
@@ -23,21 +30,23 @@ export default function Film(details) {
         {/* <Button>Add Movie to Watch List</Button> */}
         {/* <h6 className="msg">{message || <span>&nbsp;&nbsp;</span>}</h6> */}
       </div>
-      <h1 style={{ textAlign: "center" }}>Cast</h1>
-      <Slider>
-        {details.credits.cast.map((actor) => {
-          return (
-            <SliderItem key={actor.cast_id}>
-              <CastCard
-                id={actor.id}
-                name={actor.name}
-                character={actor.character}
-                img={actor.profile_path}
-              />
-            </SliderItem>
-          );
-        })}
-      </Slider>
+      <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>Cast</h1>
+      <VideoCardGroupContainer>
+        <Slider {...settings}>
+          {details.credits.cast.map((actor) => {
+            return (
+              <SliderItem key={actor.cast_id}>
+                <CastCard
+                  id={actor.id}
+                  name={actor.name}
+                  character={actor.character}
+                  img={actor.profile_path}
+                />
+              </SliderItem>
+            );
+          })}
+        </Slider>
+      </VideoCardGroupContainer>
     </PageDefault>
   );
 }
