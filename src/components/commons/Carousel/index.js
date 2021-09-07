@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { VideoCardGroupContainer, Title } from "./styles.js";
 import VideoCard from "./components/VideoCard";
 
