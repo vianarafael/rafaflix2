@@ -2,8 +2,6 @@ import React from "react";
 import SlickSlider from "react-slick";
 import styled from "styled-components";
 
-console.log("SlickSlider", SlickSlider);
-
 const Container = styled.ul`
   padding: 0;
   margin: 0;

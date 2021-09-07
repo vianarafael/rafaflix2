@@ -109,7 +109,6 @@ export async function getStaticPaths(context) {
     );
 
   const paths = [...upcoming, ...topRated, ...popular, ...nowPlaying];
-  console.log(paths);
   return {
     paths,
     fallback: false,
