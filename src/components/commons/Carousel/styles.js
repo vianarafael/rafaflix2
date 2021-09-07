@@ -15,6 +15,11 @@ export const Title = styled.h3`
     font-size: 18px;
     padding: 10px;
   }
+
+  @media (max-width: 480px) {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const ExtraLink = styled.a`

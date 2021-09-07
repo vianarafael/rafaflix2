@@ -23,7 +23,7 @@ export const LangStrings = {
     search: "検索...",
     signin: "ログイン",
     popular: "一番人気",
-    topRated: "ベスト　評価",
+    topRated: "ベスト評価",
     nowPlaying: "再生中",
     upcoming: "今後の映画",
     footer: "開発者：　",

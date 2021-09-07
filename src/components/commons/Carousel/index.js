@@ -27,11 +27,15 @@ function Carousel({ color, title, films }) {
     <VideoCardGroupContainer>
       {categoryTitle && (
         // <>
-        <Title style={{ backgroundColor: categoryColor || "red" }}>
+        <Title
+          style={{
+            backgroundColor: categoryColor || "red",
+          }}
+        >
           {categoryTitle}
         </Title>
       )}
-      <Slider>
+      <Slider centerMode={true}>
         {films
           ? films.map((film) => (
               <SliderItem key={film.original_title}>

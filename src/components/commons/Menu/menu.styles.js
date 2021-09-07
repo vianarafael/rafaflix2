@@ -21,6 +21,14 @@ export const MenuWrapper = styled.nav`
     cursor: pointer;
   }
 
+  .lang {
+    @media (max-width: 480px) {
+      margin-top: 1rem;
+      display: flex;
+      margin: 1rem auto 0 auto;
+    }
+  }
+
   /* .searchbox-mobile {
     display: none;
   } */

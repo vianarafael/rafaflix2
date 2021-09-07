@@ -10,7 +10,6 @@ const CastCard = ({ id, name, character, img, history, setSelectedActor }) => {
         <h4>{character}</h4>
       </div> */}
       <VideoCardContainer
-        id="meeeeeeeeeeeee"
         onClick={() => {
           //change the page, save the id to use in the page s
           //   // same as movies
