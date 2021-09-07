@@ -11,7 +11,7 @@ export const VideoCardContainer = styled.a`
   width: 198px;
   height: 297px;
   background-image: ${({ url }) => `url(${url})`};
-  /* background-size: cover; */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 10px;

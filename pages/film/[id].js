@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 import BannerMain from "../../src/components/commons/BannerMain";
+import CastCard from "../../src/components/commons/Carousel/components/CastCard";
 import { SliderItem } from "../../src/components/commons/Carousel/components/Slider";
 import PageDefault from "../../src/components/commons/pageDefault";
 
@@ -27,12 +28,12 @@ export default function Film(details) {
         {details.credits.cast.map((actor) => {
           return (
             <SliderItem key={actor.cast_id}>
-              {/* <CastCard
-                        id={actor.id}
-                        name={actor.name}
-                        character={actor.character}
-                        img={actor.profile_path}
-                      /> */}
+              <CastCard
+                id={actor.id}
+                name={actor.name}
+                character={actor.character}
+                img={actor.profile_path}
+              />
             </SliderItem>
           );
         })}
