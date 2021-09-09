@@ -17,8 +17,11 @@ import Text from "../../../foundation/Text";
 import LanguageModal from "../Modal/LanguageModal";
 
 import useTranslation from "../../../../intl/useTranslation";
+import firebase from "../../../firebase";
+// import { signInWithGoogle } from "../../../firebase";
 
 export default function Menu() {
+  console.log(firebase);
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const { t } = useTranslation();
@@ -75,7 +78,7 @@ export default function Menu() {
         </LanguageModal>
       </div>
       <div className="log-dashboard">
-        <Button variant="primary">
+        <Button variant="primary" onClick={() => console.log("click")}>
           <Text>{t("signin")}</Text>
         </Button>
       </div>
