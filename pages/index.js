@@ -3,8 +3,13 @@ import Carousel from "../src/components/commons/Carousel";
 
 import useTranslation from "../intl/useTranslation";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+
+import { auth } from "../firebase";
 export default function Home({ movieData }) {
   const { t } = useTranslation();
+  console.log("auth", auth);
+  // const [user, loading, error] = useAuthState(firebase.auth());
 
   return (
     <PageDefault>
