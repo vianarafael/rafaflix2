@@ -17,8 +17,8 @@ import Text from "../../../foundation/Text";
 import LanguageModal from "../Modal/LanguageModal";
 
 import useTranslation from "../../../../intl/useTranslation";
-
-// import { signInWithGoogle } from "../../../firebase";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../../../firebase";
 
 export default function Menu() {
   const router = useRouter();
@@ -77,7 +77,18 @@ export default function Menu() {
         </LanguageModal>
       </div>
       <div className="log-dashboard">
-        <Button variant="primary" onClick={() => console.log("click")}>
+        <Button
+          variant="primary"
+          onClick={() => {
+            signInWithPopup(auth, provider)
+              .then((result) => {
+                console.log(result);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          }}
+        >
           <Text>{t("signin")}</Text>
         </Button>
       </div>

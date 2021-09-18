@@ -1,7 +1,7 @@
 export const LangStrings = {
   "en-US": {
     search: "Search...",
-    signin: "Singn In",
+    signin: "Sign In",
     popular: "Popular",
     topRated: "Top Rated",
     nowPlaying: "Now Playing",
