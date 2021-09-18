@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 // import "firebase/auth";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-// import "firebase/firestore";
+import "firebase/firestore";
 
 // if (typeof window !== "undefined" && !firebase.apps.length) {
 const clientCredentials = {
@@ -13,9 +13,6 @@ const clientCredentials = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-// }
-// if (!firebase.apps.length) {
 firebase.initializeApp(clientCredentials);
 // }
 export const auth = getAuth();
@@ -40,7 +37,3 @@ signInWithPopup(auth, provider)
     // ...
   });
 export default firebase;
-
-// export const auth = Firebase.auth();
-// export const provider = new firebase.auth.GoogleAuthProvider();
-// export const signInWithGoogle = auth.signInWithPopup(provider);

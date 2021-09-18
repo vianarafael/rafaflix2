@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import BannerMain from "../../src/components/commons/BannerMain";
 import { Button } from "../../src/components/commons/Button/button.component";
 import CastCard from "../../src/components/commons/Carousel/components/CastCard";
@@ -54,7 +55,16 @@ export default function Film(details) {
         }}
       >
         {/* only show this if the user is logged in  */}
-        <Button>Add Movie to Watchlist</Button>
+        <Button
+          onClick={async () => {
+            const db = getFirestore();
+            const docRef = await addDoc(collection(db, "movies"), {
+              id: details.id,
+            });
+          }}
+        >
+          Add Movie to Watchlist
+        </Button>
         {/* if not show a message asking the user to login  */}
       </div>
       <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>Cast</h1>
