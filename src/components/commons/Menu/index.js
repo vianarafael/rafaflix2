@@ -23,7 +23,14 @@ import { auth, provider } from "../../../../firebase";
 export default function Menu() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { t } = useTranslation();
+
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      setIsLoggedIn(true);
+    }
+  });
 
   return (
     <MenuWrapper className="Menu" variant="primary">
@@ -82,14 +89,14 @@ export default function Menu() {
           onClick={() => {
             signInWithPopup(auth, provider)
               .then((result) => {
-                console.log(result);
+                console.log("ba", result);
               })
               .catch((err) => {
                 console.log(err);
               });
           }}
         >
-          <Text>{t("signin")}</Text>
+          <Text>{isLoggedIn ? t("watchlist") : t("signin")}</Text>
         </Button>
       </div>
     </MenuWrapper>

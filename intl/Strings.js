@@ -2,6 +2,7 @@ export const LangStrings = {
   "en-US": {
     search: "Search...",
     signin: "Sign In",
+    watchlist: "Watchlist",
     popular: "Popular",
     topRated: "Top Rated",
     nowPlaying: "Now Playing",
@@ -13,6 +14,7 @@ export const LangStrings = {
     search: "Buscar...",
     signin: "Iniciar Sessão",
     popular: "Popular",
+    watchlist: "Meus Filmes",
     topRated: "Melhores Avaliações",
     nowPlaying: "Agora no Cinema",
     upcoming: "A ser lançado",
@@ -22,6 +24,7 @@ export const LangStrings = {
   "ja-JP": {
     search: "検索...",
     signin: "ログイン",
+    watchlist: "監視リスト",
     popular: "一番人気",
     topRated: "ベスト評価",
     nowPlaying: "再生中",
