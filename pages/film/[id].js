@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import BannerMain from "../../src/components/commons/BannerMain";
+import { Button } from "../../src/components/commons/Button/button.component";
 import CastCard from "../../src/components/commons/Carousel/components/CastCard";
 import { SliderItem } from "../../src/components/commons/Carousel/components/Slider";
 import { VideoCardGroupContainer } from "../../src/components/commons/Carousel/styles";
@@ -52,8 +53,9 @@ export default function Film(details) {
           cursor: "pointer",
         }}
       >
-        {/* <Button>Add Movie to Watch List</Button> */}
-        {/* <h6 className="msg">{message || <span>&nbsp;&nbsp;</span>}</h6> */}
+        {/* only show this if the user is logged in  */}
+        <Button>Add Movie to Watchlist</Button>
+        {/* if not show a message asking the user to login  */}
       </div>
       <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>Cast</h1>
       <VideoCardGroupContainer>

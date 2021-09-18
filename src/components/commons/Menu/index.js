@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Logo from "../../../../public/images/logo.png";
 import Image from "next/image";
@@ -23,14 +23,18 @@ import { auth, provider } from "../../../../firebase";
 export default function Menu() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+  const [logAttempt, setLogAttempt] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const { t } = useTranslation();
 
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      setIsLoggedIn(true);
-    }
-  });
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      }
+    });
+  }, [logAttempt]);
 
   return (
     <MenuWrapper className="Menu" variant="primary">
@@ -84,20 +88,33 @@ export default function Menu() {
         </LanguageModal>
       </div>
       <div className="log-dashboard">
-        <Button
-          variant="primary"
-          onClick={() => {
-            signInWithPopup(auth, provider)
-              .then((result) => {
-                console.log("ba", result);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-          }}
-        >
-          <Text>{isLoggedIn ? t("watchlist") : t("signin")}</Text>
-        </Button>
+        {isLoggedIn ? (
+          <Button
+            variant="primary"
+            onClick={() => {
+              router.push("/dashboard");
+            }}
+          >
+            {" "}
+            <Text>{t("watchlist")}</Text>
+          </Button>
+        ) : (
+          <Button
+            variant="primary"
+            onClick={() => {
+              signInWithPopup(auth, provider)
+                .then((result) => {
+                  setLogAttempt(true);
+                  console.log("ba", result);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            }}
+          >
+            <Text>{t("signin")}</Text>
+          </Button>
+        )}
       </div>
     </MenuWrapper>
   );
