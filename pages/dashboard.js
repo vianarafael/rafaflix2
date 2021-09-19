@@ -18,7 +18,6 @@ export default function Dashboard({ films }) {
   auth.onAuthStateChanged((user) => {
     setUser(user);
   });
-  console.log(films);
 
   return (
     <PageDefault>
@@ -40,22 +39,27 @@ export default function Dashboard({ films }) {
 }
 
 export async function getStaticProps({ params }) {
-  let id;
+  const ids = [];
   const db = getFirestore();
   const querySnapshot = await getDocs(collection(db, "movies"));
   console.log(querySnapshot);
   querySnapshot.forEach(async (doc) => {
     // doc.data() is never undefined for query doc snapshots
-    id = doc.data().id;
+    ids.push(doc.data().id);
   });
-  const films = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.filmAppKey}&append_to_response=videos,credits`
-  ).then((res) => res.json());
+
+  const films = await Promise.all(
+    ids.map((id) => {
+      return fetch(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.filmAppKey}&append_to_response=videos,credits`
+      ).then((res) => res.json());
+    })
+  );
 
   console.log(films);
   // just a single movie -this needs to be several movies
 
   return {
-    props: { films: [films] },
+    props: { films },
   };
 }
