@@ -6,8 +6,9 @@ import {
   getDocs,
   getFirestore,
   doc,
-  deleteDoc,
+  updateDoc,
   deleteField,
+  deleteDoc,
 } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -43,9 +44,8 @@ export default function Dashboard({ films }) {
               />
 
               <Button
-                key={film.id}
                 onClick={async () => {
-                  await deleteDoc(doc(db, "movies", String(film.id)));
+                  await deleteDoc(doc(db, "movies", "5rmIZId0CxAUqd2K81oQ"));
                 }}
               >
                 <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
