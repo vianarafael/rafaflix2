@@ -1,10 +1,19 @@
 import React from "react";
 import PageDefault from "../src/components/commons/pageDefault";
 import { auth } from "../firebase";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  doc,
+  deleteDoc,
+  deleteField,
+} from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../src/components/commons/Button/button.component";
+
+const db = getFirestore();
 // 1. Display
 // show in here the movies that were added by the user (saved on firebase)
 
@@ -27,16 +36,21 @@ export default function Dashboard({ films }) {
       <ul>
         {films.map((film) => {
           return (
-            <>
+            <li key={film.id}>
               <h4>{film.title}</h4>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${film.backdrop_path}`}
               />
 
-              <Button>
+              <Button
+                key={film.id}
+                onClick={async () => {
+                  await deleteDoc(doc(db, "movies", String(film.id)));
+                }}
+              >
                 <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
               </Button>
-            </>
+            </li>
           );
         })}
       </ul>
@@ -46,9 +60,8 @@ export default function Dashboard({ films }) {
 
 export async function getStaticProps({ params }) {
   const ids = [];
-  const db = getFirestore();
+
   const querySnapshot = await getDocs(collection(db, "movies"));
-  console.log(querySnapshot);
   querySnapshot.forEach(async (doc) => {
     // doc.data() is never undefined for query doc snapshots
     ids.push(doc.data().id);

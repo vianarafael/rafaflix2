@@ -56,9 +56,9 @@ export default function Menu() {
         <LanguageModal onClose={() => setShowModal(false)} show={showModal}>
           <div>
             <ul>
-              {router.locales.map((locale) => {
+              {router.locales.map((locale, i) => {
                 return (
-                  <li style={{ listStyle: "none" }}>
+                  <li key={i} style={{ listStyle: "none" }}>
                     <Link href="/" locale={locale}>
                       <Button
                         style={{
