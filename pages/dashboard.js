@@ -2,7 +2,9 @@ import React from "react";
 import PageDefault from "../src/components/commons/pageDefault";
 import { auth } from "../firebase";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "../src/components/commons/Button/button.component";
 // 1. Display
 // show in here the movies that were added by the user (saved on firebase)
 
@@ -30,6 +32,10 @@ export default function Dashboard({ films }) {
               <img
                 src={`https://image.tmdb.org/t/p/w500/${film.backdrop_path}`}
               />
+
+              <Button>
+                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+              </Button>
             </>
           );
         })}
